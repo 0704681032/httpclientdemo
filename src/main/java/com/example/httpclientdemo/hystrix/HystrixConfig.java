@@ -11,8 +11,7 @@ public class HystrixConfig implements InitializingBean {
 
     @Bean
     public HystrixCommandAspect hystrixCommandAspect(){
-        // 初始化切面
-        return new HystrixCommandAspect();
+        return new HystrixCommandAspect();  // 初始化切面
     }
 
     @Override
@@ -20,8 +19,6 @@ public class HystrixConfig implements InitializingBean {
         // 初始化熔断器配置
         // 清除配置
         ConfigurationManager.getConfigInstance().clear();
-        // 加载配置文件
-        System.out.println("加载配置文件");
         ConfigurationManager.loadCascadedPropertiesFromResources("application");
     }
 }
