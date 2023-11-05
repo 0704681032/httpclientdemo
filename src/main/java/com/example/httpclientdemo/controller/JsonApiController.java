@@ -23,6 +23,27 @@ public class JsonApiController {
     }
 
     @GetMapping("/fetch-json")
+//    @HystrixCommand(
+//            commandKey = "MyCustomCommandKey", // 指定命令键
+//            groupKey = "CustomGroup", // 指定命令组
+//            threadPoolKey = "CustomThreadPool", // 指定线程池键
+//            commandProperties = {
+//                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "2000"),
+//                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "30")
+//            },
+//            threadPoolProperties = {
+//                    @HystrixProperty(name = "coreSize", value = "10"),
+//                    @HystrixProperty(name = "maxQueueSize", value = "100")
+//            }
+//    )
+
+
+    @HystrixCommand(
+            commandKey = "MyCustomCommandKey", // 指定命令键
+            //groupKey = "CustomGroup", // 指定命令组
+            threadPoolKey = "MyCustomCommandKey"// 指定线程池键
+    )
+
     public String fetchJsonData() {
         String jsonUrl = "https://jsonplaceholder.typicode.com/posts/1";
         String jsonResponse = restTemplate.getForObject(jsonUrl, String.class);

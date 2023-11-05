@@ -18,14 +18,6 @@ import java.io.IOException;
 public class HttpclientdemoApplication {
 
 	public static void main(String[] args) {
-
-		try {
-			ConfigurationManager.loadCascadedPropertiesFromResources("application");
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
-
-
 		SpringApplication.run(HttpclientdemoApplication.class, args);
 	}
 
